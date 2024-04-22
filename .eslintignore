@@ -1,0 +1,17 @@
+# Dependency directories
+node_modules
+.pnpm
+
+# Build output
+dist
+
+# Vite files
+vite.config.ts
+
+# Test files
+**/__tests__/*
+**/*.test.ts
+**/*.test.tsx
+
+# Storybook files
+**/*.stories.tsx
