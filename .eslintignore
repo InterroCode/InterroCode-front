@@ -8,6 +8,10 @@ dist
 # Vite files
 vite.config.ts
 
+
+# commmitlint
+commitlint.config.cjs
+
 # Test files
 **/__tests__/*
 **/*.test.ts
