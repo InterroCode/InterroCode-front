@@ -1,6 +1,7 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { authRoutes, RouteType } from '@/routes'
+import Dev from '@/pages/dev'
 
 const App = () => {
   const { pathname } = useLocation()
@@ -24,15 +25,8 @@ const App = () => {
           return <Route key={index} path={route.path} element={route.element} />
         })}
         {/*Add your routes here*/}
+        <Route path={'/dev'} element={<Dev />} />
       </Routes>
-      {/*<Route*/}
-      {/*  path={"/dev/sample"}*/}
-      {/*  element={*/}
-      {/*      <DashboardLayout>*/}
-      {/*          <DevSample />*/}
-      {/*      </DashboardLayout>*/}
-      {/*  }*/}
-      {/*/>*/}
     </div>
   )
 }
