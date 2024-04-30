@@ -15,8 +15,55 @@ const index = () => {
           <h1>Dev Page</h1>
           <p>This is a sample page for development purposes.</p>
         </div>
-      </section>
-      <section>
+        <div>
+          <h2>Fonts</h2>
+          <p
+            className={css`
+              font-family: 'GmarketSans', sans-serif;
+              font-weight: 300;
+            `}>
+            G Market Sans 지마켓 산스
+          </p>
+          <p
+            className={css`
+              font-family: 'Gmarket Sans', sans-serif;
+              font-weight: 500;
+            `}>
+            G Market Sans 지마켓 산스
+          </p>
+          <p
+            className={css`
+              font-family: 'Gmarket Sans', sans-serif;
+              font-weight: 700;
+            `}>
+            G Market Sans 지마켓 산스
+          </p>
+          <p
+            className={css`
+              font-family: 'Pretendard', sans-serif;
+            `}>
+            Pretendard
+          </p>
+          <p
+            className={css`
+              font-family: 'Pretendard', sans-serif;
+              font-weight: bold;
+            `}>
+            Pretendard
+          </p>
+          <p
+            className={css`
+              font-family: 'Stretch Pro', sans-serif;
+            `}>
+            Strech Pro
+          </p>
+          <p
+            className={css`
+              font-family: 'Stretch Pro', sans-serif;
+            `}>
+            SStrech PPro
+          </p>
+        </div>
         <div>
           {(Object.keys(Colors) as ColorKeys[]).map((color: ColorKeys) => {
             return (
@@ -32,6 +79,7 @@ const index = () => {
           })}
         </div>
       </section>
+      <section></section>
     </DevContainer>
   )
 }

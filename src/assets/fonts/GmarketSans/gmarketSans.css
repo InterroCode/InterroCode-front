@@ -1,22 +1,22 @@
 @font-face{
-    font-family:'GmarketSans';
+    font-family:'Gmarket Sans';
     font-weight:300;
     font-style:normal;
     font-display:swap;
-    src:url('./GmarketSansTTFMedium.ttf') format('truetype');
+    src:url('./GmarketSansTTFLight.ttf') format('truetype');
 }
 
 @font-face {
-    font-family: 'GmarketSans';
+    font-family: 'Gmarket Sans';
     font-weight: 500;
     font-style: normal;
     font-display: swap;
-    src: url('./GmarketSansTTFLight.ttf') format('truetype');
+    src: url('./GmarketSansTTFMedium.ttf') format('truetype');
 }
 
 
 @font-face {
-    font-family: 'GmarketSans';
+    font-family: 'Gmarket Sans';
     font-weight: 700;
     font-style: normal;
     font-display: swap;
