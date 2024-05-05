@@ -3,6 +3,7 @@ import { css } from '@emotion/css'
 // styles
 import { DevContainer } from '@/pages/dev/styles'
 import { Colors } from '@/styles.tsx'
+import Button from '@/component/button'
 
 type ColorsType = typeof Colors
 type ColorKeys = keyof ColorsType
@@ -14,8 +15,6 @@ const index = () => {
         <div>
           <h1>Dev Page</h1>
           <p>This is a sample page for development purposes.</p>
-        </div>
-        <div>
           <h2>Fonts</h2>
           <p
             className={css`
@@ -63,8 +62,7 @@ const index = () => {
             `}>
             SStrech PPro
           </p>
-        </div>
-        <div>
+          <h2>Colors</h2>
           {(Object.keys(Colors) as ColorKeys[]).map((color: ColorKeys) => {
             return (
               <div
@@ -78,8 +76,14 @@ const index = () => {
             )
           })}
         </div>
+        <div>
+          <Button label={'Painted'} style={{ marginBottom: '10px' }} />
+          <Button label={'UnPainted'} variant={'unpainted'} style={{ marginBottom: '10px' }} />
+          <Button label={'기본'} variant={'default'} style={{ marginBottom: '10px' }} />
+          <Button label={'small'} style={{ marginBottom: '10px' }} size={'small'} />
+          <Button label={'Large'} style={{ marginBottom: '10px' }} size={'large'} />
+        </div>
       </section>
-      <section></section>
     </DevContainer>
   )
 }
