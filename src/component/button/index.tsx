@@ -1,5 +1,5 @@
 import { cx } from '@emotion/css'
-import { ButtonSizes, ButtonStyles } from '@/component/button/style.tsx'
+import { ButtonSizes, ButtonStyles } from '@/component/button/style.ts'
 import { CSSProperties } from 'react'
 
 interface ButtonProps {

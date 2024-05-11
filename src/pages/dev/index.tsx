@@ -4,6 +4,7 @@ import { css } from '@emotion/css'
 import { DevContainer } from '@/pages/dev/styles'
 import { Colors } from '@/styles.tsx'
 import Button from '@/component/button'
+import ButtonModal from '@/component/modal/buttonModal'
 
 type ColorsType = typeof Colors
 type ColorKeys = keyof ColorsType
@@ -82,6 +83,16 @@ const index = () => {
           <Button label={'기본'} variant={'default'} style={{ marginBottom: '10px' }} />
           <Button label={'small'} style={{ marginBottom: '10px' }} size={'small'} />
           <Button label={'Large'} style={{ marginBottom: '10px' }} size={'large'} />
+        </div>
+      </section>
+      <section>
+        <div>
+          <ButtonModal
+            title={'Title'}
+            content={'Content'}
+            rightButtonText={'Right'}
+            buttonTitle={'Open DialogWithButton'}
+          />
         </div>
       </section>
     </DevContainer>
