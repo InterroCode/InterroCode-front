@@ -2,7 +2,9 @@ import { css } from '@emotion/css'
 
 // styles
 import { DevContainer } from '@/pages/dev/styles'
-import { Colors } from '@/styles.tsx'
+import { Colors } from '@/style/styles.ts'
+
+// components
 import Button from '@/component/button'
 import ButtonModal from '@/component/modal/buttonModal'
 
@@ -19,7 +21,7 @@ const index = () => {
           <h2>Fonts</h2>
           <p
             className={css`
-              font-family: 'GmarketSans', sans-serif;
+              font-family: 'Gmarket Sans', sans-serif;
               font-weight: 300;
             `}>
             G Market Sans 지마켓 산스

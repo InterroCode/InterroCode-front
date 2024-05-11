@@ -1,4 +1,6 @@
 import * as React from 'react'
+
+// component
 import Button from '@mui/material/Button'
 import Dialog from '@mui/material/Dialog'
 import DialogActions from '@mui/material/DialogActions'
@@ -28,7 +30,7 @@ const ButtonModal = (props: ButtonModalProps) => {
 
   return (
     <>
-      <Button variant="outlined" onClick={handleClickOpen}>
+      <Button variant="outlined" color="primary" onClick={handleClickOpen}>
         {buttonTitle}
       </Button>
       <Dialog
@@ -41,8 +43,10 @@ const ButtonModal = (props: ButtonModalProps) => {
           <DialogContentText id="alert-dialog-description">{content}</DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>{leftButtonText}</Button>
-          <Button onClick={handleClose} autoFocus>
+          <Button onClick={handleClose} color="primary">
+            {leftButtonText}
+          </Button>
+          <Button onClick={handleClose} autoFocus color="primary">
             {rightButtonText}
           </Button>
         </DialogActions>
