@@ -1,13 +1,14 @@
 import React from 'react'
 
-import TextField, { TextFieldVariants } from '@mui/material/TextField'
+import TextField from '@mui/material/TextField'
 
-import { InputStyles } from '@/component/input/style.tsx'
+import { InputStyles, InputWidth } from '@/component/input/style.tsx'
 import { cx } from '@emotion/css'
 
 interface InputProps {
-  variant?: TextFieldVariants
-  label: string
+  //   variant?: TextFieldVariants
+  width?: keyof typeof InputWidth
+  label?: string
   size?: 'small' | 'medium' | undefined
   fullWidth?: boolean
   error?: boolean // 에러 여부를 나타내는 부울 타입
@@ -16,13 +17,16 @@ interface InputProps {
   maxRows?: number // 엔터
   rows?: number // 펼쳐져 있음
   type?: string
+  defaultValue?: string
 }
 const Input = (props: InputProps) => {
-  //   const { variant, label, size, error,required,multiline } = props
-  console.log(props)
+  const { width = 'medium' } = props
   return (
     <div>
-      <TextField {...props} className={props.error === true ? cx(InputStyles['error']) : cx(InputStyles['default'])} />
+      <TextField
+        {...props}
+        className={props.error ? cx(InputStyles['error']) : cx(InputStyles['default'], InputWidth[width])}
+      />
     </div>
   )
 }
