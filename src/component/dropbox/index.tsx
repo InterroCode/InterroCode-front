@@ -18,10 +18,11 @@ interface StepperDropBoxProps {
   selectFields: SelectFields
   selectNum: number
   isGroup: boolean
+  groupName: string[]
 }
 
 const StepperDropBox = (props: StepperDropBoxProps) => {
-  const { fields, stepTitle, handleSelect, selectFields, selectNum, isGroup } = props
+  const { fields, stepTitle, handleSelect, selectFields, selectNum, isGroup, groupName } = props
   if (selectNum === 1) {
     return (
       <div>
@@ -38,7 +39,6 @@ const StepperDropBox = (props: StepperDropBoxProps) => {
             })}
           </Select>
         </FormControl>
-        <div>{`${stepTitle}: ${selectFields[`${stepTitle}` as keyof SelectFields]}`}</div>
       </div>
     )
   } else if (selectNum === 2 && !isGroup) {
@@ -78,11 +78,6 @@ const StepperDropBox = (props: StepperDropBoxProps) => {
             </Select>
           </FormControl>
         </div>
-
-        <div>
-          <div>{`main_${stepTitle}: ${selectFields[`main_${stepTitle}` as keyof SelectFields]}`}</div>
-          <div>{`sub_${stepTitle}: ${selectFields[`sub_${stepTitle}` as keyof SelectFields]}`}</div>
-        </div>
       </div>
     )
   } else {
@@ -97,14 +92,14 @@ const StepperDropBox = (props: StepperDropBoxProps) => {
               name={`main_${stepTitle}`}
               onChange={handleSelect}
               input={<OutlinedInput id={`select-main_${stepTitle}`} label={`main_${stepTitle}*`} />}>
-              <ListSubheader>프론트엔드</ListSubheader>
+              <ListSubheader>{groupName[0]}</ListSubheader>
               {Array.isArray(fields[0]) &&
                 fields[0]
                   .filter(field => field !== selectFields[`sub_${stepTitle}` as keyof SelectFields])
                   .map(field => {
                     return <MenuItem value={field}>{field}</MenuItem>
                   })}
-              <ListSubheader>백엔드</ListSubheader>
+              <ListSubheader>{groupName[1]}</ListSubheader>
               {Array.isArray(fields[1]) &&
                 fields[1]
                   .filter(field => field !== selectFields[`sub_${stepTitle}` as keyof SelectFields])
@@ -124,14 +119,14 @@ const StepperDropBox = (props: StepperDropBoxProps) => {
               name={`sub_${stepTitle}`}
               onChange={handleSelect}
               input={<OutlinedInput id={`select-sub_${stepTitle}`} label={`sub_${stepTitle}`} />}>
-              <ListSubheader>프론트엔드</ListSubheader>
+              <ListSubheader>{groupName[0]}</ListSubheader>
               {Array.isArray(fields[0]) &&
                 fields[0]
                   .filter(field => field !== selectFields[`main_${stepTitle}` as keyof SelectFields])
                   .map(field => {
                     return <MenuItem value={field}>{field}</MenuItem>
                   })}
-              <ListSubheader>백엔드</ListSubheader>
+              <ListSubheader>{groupName[1]}</ListSubheader>
               {Array.isArray(fields[1]) &&
                 fields[1]
                   .filter(field => field !== selectFields[`main_${stepTitle}` as keyof SelectFields])
@@ -144,10 +139,6 @@ const StepperDropBox = (props: StepperDropBoxProps) => {
                   })}
             </Select>
           </FormControl>
-        </div>
-        <div>
-          <div>{`main_${stepTitle}: ${selectFields[`main_${stepTitle}` as keyof SelectFields]}`}</div>
-          <div>{`sub_${stepTitle}: ${selectFields[`sub_${stepTitle}` as keyof SelectFields]}`}</div>
         </div>
       </div>
     )

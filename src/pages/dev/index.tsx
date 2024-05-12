@@ -20,8 +20,9 @@ type ColorKeys = keyof ColorsType
 
 const index = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const { stepsInfo, selectFields, setSelectFields, setHandleSelectFields, selectNum, isGroup } = useStackStepperStore()
-  // const notify = () => CustomToast.info('성공 !~', {})
+  const { stepsInfo, selectFields, setSelectFields, setHandleSelectFields, selectNum, isGroup, groupName } =
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useStackStepperStore()
   return (
     <DevContainer>
       <section>
@@ -104,6 +105,7 @@ const index = () => {
             setHandleSelectFields={setHandleSelectFields}
             selectNum={selectNum}
             isGroup={isGroup}
+            groupName={groupName}
           />
         </div>
         <div>
@@ -119,14 +121,35 @@ const index = () => {
           </button>
         </div>
         <div>
-          <Input variant="outlined" label="outlined small input test" size="small" />
-          <Input variant="outlined" label="outlined required input test" required />
-          <Input variant="outlined" label="outlined fullWidth input test" fullWidth />
-          <Input variant="outlined" label="outlined error input test" error />
-          <Input variant="outlined" label="outlined multiline input test" multiline maxRows={4} />
-          <Input variant="standard" label="filled multiline input test" multiline rows={4} />
-          <Input variant="standard" label="Standard multiline input test" type="password" />
-          <Input variant="standard" label="Standard multiline input test" type="number" />
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <Input label={'outlined small'} size={'small'} width={'small'} />
+            <Button label={'small'} style={{ marginLeft: '10px' }} size={'small'} />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <Input label={'required'} required />
+            <Button label={'Painted'} style={{ marginLeft: '10px' }} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <Input label={'error'} error />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <Input label={'multiline maxRows defaultValue'} multiline maxRows={4} defaultValue={'defaultValue'} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <Input label={'multiline rows'} multiline rows={4} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <Input label={'password input test'} type={'password'} />
+          </div>
+          <div style={{ marginBottom: '10px' }}>
+            <Input label={'number input test'} type={'number'} />
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
+            <div style={{ width: '700px' }}>
+              <Input fullWidth />
+            </div>
+            <Button label={'Painted'} style={{ marginLeft: '10px' }} />
+          </div>
         </div>
       </section>
     </DevContainer>

@@ -6,6 +6,7 @@ interface StepperStoreState {
   selectFields: SelectFields
   selectNum: number[]
   isGroup: boolean[]
+  groupName: string[]
   setSelectFields: (newSelectFields: SelectFields) => void
   setHandleSelectFields: (name: string, value: string) => void
 }
@@ -16,7 +17,7 @@ export const useStackStepperStore = create<StepperStoreState>(set => ({
       step: '관심 개발 분야',
       label: '관심 개발 분야를 선택해 주세요.',
       stepTitle: 'task',
-      fields: ['front', 'back', 'full'],
+      fields: ['Front-end', 'Back-end', 'Full Stack'],
     },
     {
       step: '프로그래밍 언어',
@@ -43,6 +44,7 @@ export const useStackStepperStore = create<StepperStoreState>(set => ({
   },
   selectNum: [1, 2, 2],
   isGroup: [false, false, true],
+  groupName: ['Front-end', 'Back-end'],
   setSelectFields: newSelectFields => set(state => ({ ...state, selectFields: newSelectFields })),
   setHandleSelectFields: (name, value) =>
     set(state => ({

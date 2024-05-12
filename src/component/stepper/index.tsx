@@ -7,11 +7,14 @@ import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import Chip from '@mui/material/Chip'
 import StepperDropBox from '@/component/dropbox'
 import { SelectChangeEvent } from '@mui/material/Select'
 
 import { StepInfo, SelectFields } from '@/model/step'
 
+import CustomToast from '@/component/toast'
+import InfoIcon from '@mui/icons-material/Info'
 import { StepperStyles, ButtonColor } from '@/component/stepper/style.tsx'
 import { cx } from '@emotion/css'
 
@@ -21,27 +24,30 @@ interface StepperProps {
   selectFields: SelectFields
   selectNum: number[]
   isGroup: boolean[]
+  groupName: string[]
   setSelectFields: (newSelectFields: SelectFields) => void
   setHandleSelectFields: (name: string, value: string) => void
 }
 
 export default function HorizontalLinearStepper(props: StepperProps) {
   const [activeStep, setActiveStep] = useState(0)
-  const { stepsInfo, selectFields, setSelectFields, setHandleSelectFields, selectNum, isGroup } = props
+  const { stepsInfo, selectFields, setSelectFields, setHandleSelectFields, selectNum, isGroup, groupName } = props
 
   const handleNext = () => {
     if (selectNum[activeStep] === 2) {
       const currentStepValue = selectFields[`main_${stepsInfo[activeStep].stepTitle}` as keyof SelectFields]
       if (currentStepValue === '') {
         // main만 필수 !
-        alert(`main_${stepsInfo[activeStep].stepTitle}을 입력해 주세요.`)
+        // alert(`main_${stepsInfo[activeStep].stepTitle}을 입력해 주세요.`)
+        CustomToast.info(`main_${stepsInfo[activeStep].stepTitle}을 입력해 주세요.`, <InfoIcon />)
         return
       }
     } else {
       const currentStepValue = selectFields[stepsInfo[activeStep].stepTitle as keyof SelectFields]
       if (currentStepValue === '') {
         // 선택된 값이 없으면 다음 스텝으로 진행하지 않고 함수를 종료
-        alert(`${stepsInfo[activeStep].stepTitle}을 입력해 주세요.`)
+        // alert(`${stepsInfo[activeStep].stepTitle}을 입력해 주세요.`)
+        CustomToast.info(`${stepsInfo[activeStep].stepTitle}을 입력해 주세요.`, <InfoIcon />)
         return
       }
     }
@@ -92,6 +98,7 @@ export default function HorizontalLinearStepper(props: StepperProps) {
               <div key={key}>{value}</div>
             ))}
           </Typography>
+
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }} className={cx(ButtonColor['default'])}>
             <Box sx={{ flex: '1 1 auto' }} />
             <Button onClick={handleReset}>Reset</Button>
@@ -100,11 +107,11 @@ export default function HorizontalLinearStepper(props: StepperProps) {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 5, mb: 1, pl: 1 }}>
+          <Typography sx={{ mt: 5, mb: 1, pl: 1 }} style={{ display: 'flex', justifyContent: 'space-around' }}>
             <div>
-              {activeStep + 1}. {stepsInfo[activeStep].label}
-            </div>
-            <div>
+              <div>
+                {activeStep + 1}. {stepsInfo[activeStep].label}
+              </div>
               <StepperDropBox
                 handleSelect={handleSelect}
                 stepTitle={stepsInfo[activeStep].stepTitle}
@@ -112,9 +119,33 @@ export default function HorizontalLinearStepper(props: StepperProps) {
                 selectFields={selectFields}
                 selectNum={selectNum[activeStep]}
                 isGroup={isGroup[activeStep]}
+                groupName={groupName}
               />
             </div>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              {selectNum[activeStep] === 1 && (
+                <>
+                  {selectFields[stepsInfo[activeStep].stepTitle as keyof SelectFields] && (
+                    <Chip label={`${selectFields[stepsInfo[activeStep].stepTitle as keyof SelectFields]}`} />
+                  )}
+                </>
+              )}
+              {selectNum[activeStep] === 2 && (
+                <>
+                  {selectFields[`main_${stepsInfo[activeStep].stepTitle}` as keyof SelectFields] && (
+                    <Chip label={`${selectFields[`main_${stepsInfo[activeStep].stepTitle}` as keyof SelectFields]}`} />
+                  )}
+                  {selectFields[`sub_${stepsInfo[activeStep].stepTitle}` as keyof SelectFields] && (
+                    <Chip
+                      style={{ marginLeft: '10px' }}
+                      label={`${selectFields[`sub_${stepsInfo[activeStep].stepTitle}` as keyof SelectFields]}`}
+                    />
+                  )}
+                </>
+              )}
+            </div>
           </Typography>
+
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }} className={cx(ButtonColor['default'])}>
             <Button color="inherit" disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>
               Back
