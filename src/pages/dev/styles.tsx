@@ -1,5 +1,5 @@
 import styled from '@emotion/styled'
-import { Colors } from '@/styles'
+import { Colors } from '@/style/styles.ts'
 
 export const DevContainer = styled.div`
   & > section {
