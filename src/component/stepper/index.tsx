@@ -11,7 +11,7 @@ import Chip from '@mui/material/Chip'
 import StepperDropBox from '@/component/dropbox'
 import { SelectChangeEvent } from '@mui/material/Select'
 
-import { StepInfo, SelectFields } from '@/model/step'
+import { StepInfo, SelectFields } from '@/types/step'
 
 import CustomToast from '@/component/toast'
 import InfoIcon from '@mui/icons-material/Info'

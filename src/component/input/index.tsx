@@ -2,7 +2,7 @@ import React from 'react'
 
 import TextField from '@mui/material/TextField'
 
-import { InputStyles, InputWidth } from '@/component/input/style.tsx'
+import { InputStyles, InputWidth } from '@/component/input/style'
 import { cx } from '@emotion/css'
 
 interface InputProps {
@@ -19,6 +19,7 @@ interface InputProps {
   type?: string
   defaultValue?: string
 }
+
 const Input = (props: InputProps) => {
   const { width = 'medium' } = props
   return (

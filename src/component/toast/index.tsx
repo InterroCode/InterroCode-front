@@ -1,42 +1,8 @@
-import { toast, ToastContainer } from 'react-toastify'
-import { ToastOptions } from '@/model/toast'
+import { toast } from 'react-toastify'
+import { ToastOptions } from '@/types/toast'
 import 'react-toastify/dist/ReactToastify.css'
 
 import { ReactNode } from 'react'
-
-import styled from '@emotion/styled'
-import { Colors } from '@/styles'
-
-// App.tsx (root에 선언해두고 씀)
-export const StyledToastConatiner = styled(ToastContainer)`
-  .Toastify__progress-bar--info {
-    background: ${Colors.Primary};
-  }
-  .Toastify__toast--info {
-    border: 1px solid transparent;
-    .Toastify__toast-icon {
-      color: ${Colors.Primary};
-    }
-  }
-  .Toastify__progress-bar--success {
-    background: ${Colors.Confirmed};
-  }
-  .Toastify__toast--success {
-    border: 1px solid ${Colors.Confirmed};
-    .Toastify__toast-icon {
-      color: ${Colors.Confirmed};
-    }
-  }
-  .Toastify__progress-bar--error {
-    background: ${Colors.Error};
-  }
-  .Toastify__toast--error {
-    border: 1px solid ${Colors.Error};
-    .Toastify__toast-icon {
-      color: ${Colors.Error};
-    }
-  }
-`
 
 const defaultToastOption: ToastOptions = {
   position: 'top-center',
@@ -48,7 +14,11 @@ const defaultToastOption: ToastOptions = {
   closeButton: true,
 }
 
-export const CustomToast = {
+/**
+ * @description
+ */
+
+const CustomToast = {
   info: (message: ReactNode, icon?: JSX.Element, options?: ToastOptions) => {
     toast.info(message, { ...defaultToastOption, icon: icon, ...options })
   },

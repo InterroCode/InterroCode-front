@@ -6,7 +6,7 @@ import FormControl from '@mui/material/FormControl'
 import Select, { SelectChangeEvent } from '@mui/material/Select'
 import ListSubheader from '@mui/material/ListSubheader'
 
-import { SelectFields } from '@/model/step'
+import { SelectFields } from '@/types/step'
 
 import { DropStyles, DropSizes } from '@/component/dropbox/style.tsx'
 import { cx } from '@emotion/css'

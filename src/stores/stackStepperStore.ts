@@ -1,5 +1,5 @@
 import { create } from 'zustand'
-import { StepInfo, SelectFields } from '@/model/step'
+import { StepInfo, SelectFields } from '@/types/step'
 
 interface StepperStoreState {
   stepsInfo: StepInfo[]
