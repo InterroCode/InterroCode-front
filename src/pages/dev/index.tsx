@@ -7,6 +7,7 @@ import { Colors } from '@/style/styles.ts'
 // components
 import Button from '@/component/button'
 import ButtonModal from '@/component/modal/buttonModal'
+import LeftSideBar from '@/layouts/leftSideBar'
 
 type ColorsType = typeof Colors
 type ColorKeys = keyof ColorsType
@@ -95,6 +96,9 @@ const index = () => {
             rightButtonText={'Right'}
             buttonTitle={'Open DialogWithButton'}
           />
+        </div>
+        <div>
+          <LeftSideBar />
         </div>
       </section>
     </DevContainer>
