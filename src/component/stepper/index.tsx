@@ -6,7 +6,6 @@ import Stepper from '@mui/material/Stepper'
 import Step from '@mui/material/Step'
 import StepLabel from '@mui/material/StepLabel'
 import Button from '@mui/material/Button'
-import Typography from '@mui/material/Typography'
 import Chip from '@mui/material/Chip'
 import StepperDropBox from '@/component/dropbox'
 import { SelectChangeEvent } from '@mui/material/Select'
@@ -15,7 +14,7 @@ import { StepInfo, SelectFields } from '@/types/step'
 
 import CustomToast from '@/component/toast'
 import InfoIcon from '@mui/icons-material/Info'
-import { StepperStyles, ButtonColor } from '@/component/stepper/style.tsx'
+import { StepperStyles, ButtonColor } from '@/component/stepper/style.ts'
 import { cx } from '@emotion/css'
 
 interface StepperProps {
@@ -92,12 +91,12 @@ export default function HorizontalLinearStepper(props: StepperProps) {
       {activeStep === stepsInfo.length ? (
         // 마지막 step일 때
         <React.Fragment>
-          <Typography sx={{ mt: 5, mb: 1, pl: 1 }}>
+          <div>
             All steps completed - you&apos;re finished
             {Object.entries(selectFields).map(([key, value]) => (
               <div key={key}>{value}</div>
             ))}
-          </Typography>
+          </div>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }} className={cx(ButtonColor['default'])}>
             <Box sx={{ flex: '1 1 auto' }} />
@@ -107,7 +106,7 @@ export default function HorizontalLinearStepper(props: StepperProps) {
         </React.Fragment>
       ) : (
         <React.Fragment>
-          <Typography sx={{ mt: 5, mb: 1, pl: 1 }} style={{ display: 'flex', justifyContent: 'space-around' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-around' }}>
             <div>
               <div>
                 {activeStep + 1}. {stepsInfo[activeStep].label}
@@ -144,7 +143,7 @@ export default function HorizontalLinearStepper(props: StepperProps) {
                 </>
               )}
             </div>
-          </Typography>
+          </div>
 
           <Box sx={{ display: 'flex', flexDirection: 'row', pt: 2 }} className={cx(ButtonColor['default'])}>
             <Button color="inherit" disabled={activeStep === 0} onClick={handleBack} sx={{ mr: 1 }}>

@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { Colors } from '@/styles'
+import { Colors } from '@/style/styles'
 
 export const StepperStyles = {
   default: css`

@@ -16,6 +16,7 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       <ThemeProvider theme={theme}>
         <CssBaseline enableColorScheme>
           <App />
+          <StyledToastConatiner />
         </CssBaseline>
       </ThemeProvider>
     </React.StrictMode>

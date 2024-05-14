@@ -1,6 +1,6 @@
 import { ToastContainer } from 'react-toastify'
 import styled from '@emotion/styled'
-import { Colors } from '@/styles'
+import { Colors } from '@/style/styles'
 
 // App.tsx (root에 선언해두고 씀)
 export const StyledToastConatiner = styled(ToastContainer)`
