@@ -2,18 +2,16 @@ import { css } from '@emotion/css'
 
 // styles
 import { DevContainer } from '@/pages/dev/styles'
-import { Colors } from '@/styles.tsx'
+import { Colors } from '@/style/styles.ts'
 
+// components
 import Button from '@/component/button'
+import ButtonModal from '@/component/modal/buttonModal'
+import LeftSideBar from '@/layouts/leftSideBar'
+import { useStackStepperStore } from '@/stores/stackStepperStore'
 import HorizontalLinearStepper from '@/component/stepper'
 import CustomToast from '@/component/toast'
 import Input from '@/component/input'
-
-import InfoIcon from '@mui/icons-material/Info'
-import DoneAllIcon from '@mui/icons-material/DoneAll'
-import WarningAmberIcon from '@mui/icons-material/WarningAmber'
-
-import { useStackStepperStore } from '@/stores/stackStepperStore'
 
 type ColorsType = typeof Colors
 type ColorKeys = keyof ColorsType
@@ -32,7 +30,7 @@ const index = () => {
           <h2>Fonts</h2>
           <p
             className={css`
-              font-family: 'GmarketSans', sans-serif;
+              font-family: 'Gmarket Sans', sans-serif;
               font-weight: 300;
             `}>
             G Market Sans 지마켓 산스
@@ -109,16 +107,9 @@ const index = () => {
           />
         </div>
         <div>
-          <button onClick={() => CustomToast.info('안녕하세요. 반갑습니다 ~! ', <InfoIcon />)}>
-            info 토스트 알림 보이기
-          </button>
-          <button onClick={() => CustomToast.success('로그인 성공 !!~', <DoneAllIcon />)}>
-            success 토스트 알림 보이기
-          </button>
-          <button
-            onClick={() => CustomToast.error('로그인 실패 ㅠㅠ', <WarningAmberIcon />, { hideProgressBar: true })}>
-            error 토스트 알림 보이기
-          </button>
+          <button onClick={() => CustomToast.info('안녕하세요. 반갑습니다 ~! ')}>info 토스트 알림 보이기</button>
+          <button onClick={() => CustomToast.success('로그인 성공 !!~')}>success 토스트 알림 보이기</button>
+          <button onClick={() => CustomToast.error('로그인 실패 ㅠㅠ')}>error 토스트 알림 보이기</button>
         </div>
         <div>
           <div style={{ display: 'flex', alignItems: 'center', marginBottom: '10px' }}>
@@ -150,6 +141,19 @@ const index = () => {
             </div>
             <Button label={'Painted'} style={{ marginLeft: '10px' }} />
           </div>
+        </div>
+      </section>
+      <section>
+        <div>
+          <ButtonModal
+            title={'Title'}
+            content={'Content'}
+            rightButtonText={'Right'}
+            buttonTitle={'Open DialogWithButton'}
+          />
+        </div>
+        <div>
+          <LeftSideBar />
         </div>
       </section>
     </DevContainer>
