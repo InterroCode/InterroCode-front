@@ -1,7 +1,10 @@
 import { Route, Routes, useLocation, useNavigate } from 'react-router-dom'
 import { useEffect } from 'react'
 import { authRoutes, RouteType } from '@/routes'
+
+// pages
 import Dev from '@/pages/dev'
+import Test from '@/pages/test'
 
 const App = () => {
   const { pathname } = useLocation()
@@ -26,6 +29,7 @@ const App = () => {
         })}
         {/*Add your routes here*/}
         <Route path={'/dev'} element={<Dev />} />
+        <Route path={'/test'} element={<Test />} />
       </Routes>
     </div>
   )

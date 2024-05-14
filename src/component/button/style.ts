@@ -1,5 +1,5 @@
 import { css } from '@emotion/css'
-import { Colors } from '@/styles'
+import { Colors } from '@/style/styles.ts'
 
 export const ButtonStyles = {
   default: css`

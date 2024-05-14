@@ -2,8 +2,12 @@ import { css } from '@emotion/css'
 
 // styles
 import { DevContainer } from '@/pages/dev/styles'
-import { Colors } from '@/styles.tsx'
+import { Colors } from '@/style/styles.ts'
+
+// components
 import Button from '@/component/button'
+import ButtonModal from '@/component/modal/buttonModal'
+import LeftSideBar from '@/layouts/leftSideBar'
 
 type ColorsType = typeof Colors
 type ColorKeys = keyof ColorsType
@@ -18,7 +22,7 @@ const index = () => {
           <h2>Fonts</h2>
           <p
             className={css`
-              font-family: 'GmarketSans', sans-serif;
+              font-family: 'Gmarket Sans', sans-serif;
               font-weight: 300;
             `}>
             G Market Sans 지마켓 산스
@@ -82,6 +86,19 @@ const index = () => {
           <Button label={'기본'} variant={'default'} style={{ marginBottom: '10px' }} />
           <Button label={'small'} style={{ marginBottom: '10px' }} size={'small'} />
           <Button label={'Large'} style={{ marginBottom: '10px' }} size={'large'} />
+        </div>
+      </section>
+      <section>
+        <div>
+          <ButtonModal
+            title={'Title'}
+            content={'Content'}
+            rightButtonText={'Right'}
+            buttonTitle={'Open DialogWithButton'}
+          />
+        </div>
+        <div>
+          <LeftSideBar />
         </div>
       </section>
     </DevContainer>
